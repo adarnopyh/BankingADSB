@@ -8,8 +8,6 @@ import org.banking.pet.repository.UserRepository;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.time.LocalDate;
-import java.time.Period;
 import java.util.List;
 import java.util.Optional;
 
@@ -34,7 +32,6 @@ public class UserService {
         if (optionalUser.isPresent()) {
             throw new IllegalStateException("User with this email already exists");
         }
-        user.setAge(Period.between(user.getBirthday(), LocalDate.now()).getYears());
         User savedUser = userRepository.save(user);
 
         BankAccount account = new BankAccount();

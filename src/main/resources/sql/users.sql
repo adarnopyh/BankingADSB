@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS users CASCADE;
+CREATE TABLE IF NOT EXISTS users (
+     id BIGSERIAL PRIMARY KEY,
+     name VARCHAR(255) NOT NULL,
+     email VARCHAR(255) UNIQUE NOT NULL,
+     password VARCHAR(60) NOT NULL,
+     birthday DATE
+);
